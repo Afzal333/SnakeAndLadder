@@ -7,12 +7,12 @@ namespace SnakeAndLadder
     public class GamePlay
     {
         const int No_Play=0,Ladder=1, Snake=2,Winning_Position=100;
-        int playerPosition = 0;
+        int playerPosition = 0,count =0;
         Random random = new Random();
         public int DieRoll()
         {
             int die = random.Next(1, 7);
-            //Console.WriteLine(die);
+            count++;
             return die;
         }
 
@@ -36,9 +36,10 @@ namespace SnakeAndLadder
                             this.playerPosition = 0;
                         break;
                 }
-                if(this.playerPosition == Winning_Position)
+                Console.WriteLine("Player Position - " + playerPosition);
+                if (this.playerPosition == Winning_Position)
                 {
-                    Console.WriteLine(this.playerPosition);
+                    Console.WriteLine("Total Die Role Count "+ count);
                     return;
                 }
             }
